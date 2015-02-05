@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Nallware MTG Score Keeper</title>
+<meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="mtg.css" type="text/css" media="all" />
+<script language="JavaScript">
+
+function addPone()
+{
+player1score = player1score+1;
+if (player1score >0){
+document.getElementById("p1").style.color = "black";
+document.getElementById("score1").innerHTML = player1score;
+}
+else{
+document.getElementById("p1").style.color = "red";
+document.getElementById("score1").innerHTML = player1score;
+}
+}
+
+function subPone()
+{
+player1score = player1score-1;
+if (player1score <1){
+document.getElementById("p1").style.color = "red";
+document.getElementById("score1").innerHTML = player1score;
+}
+else{
+document.getElementById("p1").style.color = "black";
+document.getElementById("score1").innerHTML = player1score;
+}
+}
+
+function addPtwo()
+{
+player2score = player2score+1;
+if (player2score >0){
+document.getElementById("p2").style.color = "black";
+document.getElementById("score2").innerHTML = player2score;
+}
+else{
+document.getElementById("p2").style.color = "red";
+document.getElementById("score2").innerHTML = player2score;
+}
+}
+
+function subPtwo()
+{
+player2score = player2score-1;
+if (player2score <1){
+document.getElementById("p2").style.color = "red";
+document.getElementById("score2").innerHTML = player2score;
+}
+else{
+document.getElementById("p2").style.color = "black";
+document.getElementById("score2").innerHTML = player2score;
+}
+}
+
+function startOver()
+{
+player1score = 20;
+document.getElementById("score1").innerHTML = player1score;
+player2score = 20;
+document.getElementById("score2").innerHTML = player2score;
+document.getElementById("p1").style.color = "black";
+document.getElementById("p2").style.color = "black";
+
+var width = $(window).width() - 25; 
+$("#maindivvy").width(width);
+}
+
+
+function newGame()
+{
+var plr1 = prompt("Enter Player 1 Name", "player 1");
+var plr2 = prompt("Enter Player 2 Name", "player 2");
+document.getElementById("p1").innerHTML = plr1;
+document.getElementById("p2").innerHTML = plr2;
+document.getElementById("p1").style.color = "black";
+document.getElementById("p2").style.color = "black";
+player1score = 20;
+document.getElementById("score1").innerHTML = player1score;
+player2score = 20;
+document.getElementById("score2").innerHTML = player2score;
+var width = $(window).width() - 25; 
+$("#maindivvy").width(width);
+}
+
+
+
+</script>
+
+</head>
+
+<body onload="newGame();">
+<div id="maindivvy">
+<form class="form-container">
+<div class="form-title"><h1>MTG Score Keeper</h1></div>
+<img src="mtg-mana.png" alt="" width="90%" />
+<div class="namee"><span id="p1">player1</span> 
+ &laquo;&laquo;&laquo; 
+<span class="score" id="score1"></span> </div>
+
+
+<input class="small-button" type="button" value="+" onclick="addPone();" />
+<input class="small-button" type="button" value="-" onclick="subPone();" />
+<br /><br /><br />
+<div class="namee"><span id="p2">player2</span>
+&laquo;&laquo;&laquo; 
+<span class="score" id="score2"></span> </div>
+
+
+<input class="small-button" type="button" value="+" onclick="addPtwo();" />
+<input class="small-button" type="button" value="-" onclick="subPtwo();" />
+<br />
+<div class="submit-container">
+<input class="submit-button" type="button" value="Start Over" onclick="startOver();" />
+<p style="font-size:9pt; text-align:center">(Reload this page to start over with new players)</p>
+</div>
+</form>
+</div>
+
+</body>
+
+</html>
